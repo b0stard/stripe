@@ -1,13 +1,16 @@
 package com.example.demo.payment.mapper
 
 import com.example.demo.payment.domain.Payment
+import org.springframework.stereotype.Component
 import tools.jackson.databind.ObjectMapper
 
-object PaymentMapper {
+@Component
+class PaymentMapper(
 
-    private val mapper: ObjectMapper = ObjectMapper()
+    private val objectMapper: ObjectMapper
 
-    fun toJson(payment: Payment): String {
-        return mapper.writeValueAsString(payment)
-    }
+) {
+
+    fun toJson(payment: Payment): String = objectMapper.writeValueAsString(payment)
+
 }
