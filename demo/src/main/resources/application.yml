@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+  kafka:
+    bootstrap-servers: kafka-15ae937-sostanin378-8393.k.aivencloud.com:19153
+
+    properties:
+      security.protocol: SSL
+
+      ssl.keystore.type: PEM
+      ssl.truststore.type: PEM
+
+      ssl.key.location: classpath:kafka/service.key
+      ssl.certificate.location: classpath:kafka/service.cert
+      ssl.ca.location: classpath:kafka/ca.pem
+
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
